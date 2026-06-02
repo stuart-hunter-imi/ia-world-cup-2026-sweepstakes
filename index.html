@@ -1,1038 +1,1004 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lakeside World Cup 2026 Sweepstakes</title>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.0/dist/twemoji.min.js" crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --purple: #441f54;
-            --purple-glow: rgba(68, 31, 84, 0.85);
-            --teal: #1f607c;
-            --gold: #f7c631;
-            --coral: #e34f6d;
-            --jet: #2b2a27;
-            --stone-1: #e3ddd4;
-            --stone-2: #eae5e1;
-            --stone-3: #eeecea;
-            --stone-4: #f5f6f5;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            color: var(--jet);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                url('Gemini_Generated_Image_thgerothgerothge.png') no-repeat center center;
-            background-attachment: fixed;
-            background-size: cover;
-        }
-
-        .main-wrapper {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .bookmark-banner {
-            background-color: var(--teal);
-            color: white;
-            padding: 12px;
-            text-align: center;
-            position: relative;
-            font-weight: 600;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-
-        .bookmark-banner button {
-            background: rgba(255,255,255,0.2);
-            border: 1px solid white;
-            color: white;
-            padding: 2px 8px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            transition: 0.3s;
-        }
-
-        .bookmark-banner button:hover {
-            background: white;
-            color: var(--teal);
-        }
-
-        .header-wrapper {
-            background-color: rgba(255, 255, 255, 0.94);
-            border-bottom: 4px solid var(--purple);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            width: 100%;
-            backdrop-filter: blur(8px);
-        }
-
-        header {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 50px;
-        }
-
-        .header-title h1 {
-            color: var(--purple);
-            font-size: 1.8rem;
-            text-align: right;
-            text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1400px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.96);
-            border-radius: 12px;
-            padding: 35px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            border-top: 5px solid var(--purple);
-            max-width: 700px;
-            margin: 0 auto;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--jet);
-        }
-
-        input, select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid var(--stone-1);
-            border-radius: 6px;
-            font-size: 1rem;
-            background-color: var(--stone-4);
-            transition: 0.3s;
-        }
-
-        input:focus, select:focus {
-            border-color: var(--teal);
-            outline: none;
-            box-shadow: 0 0 8px rgba(31, 96, 124, 0.25);
-        }
-
-        .btn-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 10px;
-        }
-
-        .btn {
-            background-color: var(--purple);
-            color: white;
-            padding: 14px 28px;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .btn:hover {
-            background-color: var(--teal);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-        }
-
-        .btn-secondary {
-            background-color: rgba(255,255,255,0.85);
-            color: var(--teal);
-            border: 2px solid var(--teal);
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 6px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--teal);
-            color: white;
-        }
-
-        .btn-demo-trigger {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: var(--coral);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-            z-index: 999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: transform 0.2s, background-color 0.2s;
-        }
-
-        .btn-demo-trigger:hover {
-            background-color: #be3b54;
-            transform: scale(1.05);
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(12, 18, 14, 0.85);
-            backdrop-filter: blur(8px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-        }
-
-        .reveal-card {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            max-width: 480px;
-            width: 90%;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border-top: 6px solid var(--purple);
-            animation: modalPopUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        .reveal-flag-wrapper {
-            margin: 20px 0;
-            animation: flagPulseScale 2s infinite alternate ease-in-out;
-        }
-
-        .reveal-flag-wrapper img.emoji {
-            height: 110px !important;
-            width: 110px !important;
-            filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.2));
-        }
-
-        .reveal-country-name {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--purple);
-            margin-bottom: 5px;
-        }
-
-        @keyframes modalPopUp {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        @keyframes flagPulseScale {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.08); filter: drop-shadow(0px 12px 18px rgba(68,31,84,0.3)); }
-        }
-
-        .app-grid {
-            display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 950px) {
-            .app-grid {
-                grid-template-columns: 1fr;
-            }
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .header-title h1 {
-                text-align: center;
-            }
-        }
-
-        .sidebar {
-            background: rgba(255, 255, 255, 0.96);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            height: fit-content;
-            backdrop-filter: blur(10px);
-        }
-
-        .sidebar h2 {
-            color: var(--purple);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--stone-2);
-            padding-bottom: 8px;
-        }
-
-        .entrant-list {
-            max-height: 600px;
-            overflow-y: auto;
-            padding-right: 5px;
-        }
-
-        .entrant-card {
-            background: var(--stone-4);
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            border-left: 4px solid var(--teal);
-        }
-
-        .entrant-card.active-user {
-            border-left: 4px solid var(--gold);
-            background: #fffdf3;
-            box-shadow: 0 2px 10px rgba(247, 198, 49, 0.25);
-        }
-
-        .entrant-name {
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .entrant-team {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            align-items: center;
-        }
-
-        .cheer-note {
-            background: #fff9e6;
-            border: 1px dashed var(--gold);
-            color: var(--jet);
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .dismiss-btn {
-            background: none; 
-            border: none; 
-            cursor: pointer; 
-            font-size: 0.75rem; 
-            display: block; 
-            width: 100%; 
-            margin-top: 8px; 
-            text-decoration: underline; 
-            color: var(--purple);
-        }
-
-        .status-badge {
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            color: white;
-            white-space: nowrap;
-        }
-
-        .status-pitch { background-color: #2e7d32; }
-        .status-eliminated { background-color: #8c8881; color: white; }
-        .status-winner { background-color: var(--gold); color: var(--jet); }
-
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .tabs {
-            display: flex;
-            gap: 10px;
-            border-bottom: 2px solid rgba(255,255,255,0.4);
-        }
-
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: bold;
-            color: #ffffff;
-            border-bottom: 3px solid transparent;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
-        }
-
-        .tab.active {
-            color: var(--gold);
-            border-bottom-color: var(--gold);
-        }
-
-        .group-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
-        .group-table {
-            background: rgba(255, 255, 255, 0.96);
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .group-table h3 {
-            background: var(--purple);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
-        }
-
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid var(--stone-3);
-        }
-
-        th { font-weight: bold; color: var(--teal); }
-
-        .table-assignee {
-            font-size: 0.75rem;
-            color: #555;
-            display: block;
-            font-style: italic;
-            margin-top: 2px;
-        }
-
-        img.emoji {
-            height: 1em;
-            width: 1em;
-            margin: 0 .05em 0 .1em;
-            vertical-align: -0.1em;
-            display: inline-block;
-        }
-
-        /* Bracket Styles */
-        .bracket-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.96);
-            padding: 20px;
-            border-radius: 8px;
-            overflow-x: auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-            align-items: start; 
-            justify-items: center; 
-        }
-
-        .bracket-round {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            min-width: 220px;
-            width: 100%;
-            align-items: center;
-        }
-
-        .bracket-round h4 {
-            text-align: center;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #ccc;
-            width: 90%;
-            padding-bottom: 5px;
-            color: var(--purple);
-        }
-
-        .matchup {
-            background: var(--stone-4);
-            border: 1px solid var(--stone-1);
-            border-radius: 6px;
-            padding: 10px;
-            margin: 8px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            width: 95%;
-            font-size: 0.85rem;
-        }
-
-        .match-team {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 3px 0;
-        }
-
-        .match-team span:first-child {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .match-team small {
-            font-size: 0.7rem;
-            color: #777;
-            font-style: italic;
-        }
-
-        .match-team.winner {
-            font-weight: bold;
-            color: var(--teal);
-        }
-
-        .match-team.winner span {
-            color: var(--teal);
-        }
-
-        /* End Bracket Styles */
-
-        #winner-screen {
-            max-width: 800px;
-            text-align: center;
-            padding: 60px 40px;
-            background: radial-gradient(circle, #ffffff 60%, #fffbf0 100%);
-            border: 6px double var(--gold);
-            margin: 0 auto;
-            animation: pulseGlow 2s infinite alternate, scaleBounce 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .trophy {
-            font-size: 130px;
-            line-height: 1;
-            margin-bottom: 10px;
-            animation: trophySpin 1.5s ease-out, constantFloat 3s ease-in-out infinite alternate;
-            filter: drop-shadow(0px 10px 12px rgba(247, 198, 49, 0.4));
-        }
-
-        .winner-title {
-            font-size: 3.5rem;
-            background: linear-gradient(45deg, var(--purple), var(--coral), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            margin: 15px 0;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-
-        .winner-showcase {
-            background: var(--purple);
-            color: white;
-            display: inline-block;
-            padding: 20px 50px;
-            border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(68, 31, 84, 0.3);
-            transform: rotate(-2deg);
-            margin: 20px 0;
-            animation: layoutRock 4s ease-in-out infinite;
-        }
-
-        .winner-name {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--gold);
-            text-shadow: 2px 2px rgba(0,0,0,0.3);
-        }
-
-        .winner-details {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--stone-4);
-            margin-top: 5px;
-            opacity: 0.9;
-        }
-
-        @keyframes constantFloat {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-20px); }
-        }
-        @keyframes trophySpin {
-            0% { transform: scale(0.3) rotate(-180deg); opacity: 0; }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        @keyframes scaleBounce {
-            0% { transform: scale(0.7); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-            100% { box-shadow: 0 4px 30px rgba(247, 198, 49, 0.4); border-color: var(--purple); }
-        }
-        @keyframes layoutRock {
-            0% { transform: rotate(-2deg) scale(1); }
-            50% { transform: rotate(2deg) scale(1.03); }
-            100% { transform: rotate(-2deg) scale(1); }
-        }
-
-        footer {
-            padding: 30px 20px;
-            background-color: var(--jet);
-            color: var(--stone-3);
-            font-size: 0.85rem;
-            text-align: center;
-            border-top: 4px solid var(--coral);
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
-            flex-shrink: 0;
-        }
-
-        footer p {
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        footer p:first-child {
-            margin-bottom: 8px;
-        }
-
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        .hidden { display: none !important; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMI Lakeside World Cup 2026 Sweepstakes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #441f54;
+    --teal: #1f607c;
+    --gold: #f7c631;
+    --coral: #e34f6d;
+    --jet: #2b2a27;
+    --stone1: #e3ddd4;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    color: var(--white);
+    /* Fallback rich background — no external image dependency */
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(68,31,84,0.9) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(31,96,124,0.8) 0%, transparent 55%),
+      radial-gradient(ellipse at 60% 80%, rgba(68,31,84,0.6) 0%, transparent 50%),
+      linear-gradient(160deg, #1a0d22 0%, #0e2f3d 45%, #1a1915 100%);
+  }
+
+  /* ── PITCH LINES DECORATION ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── TOP BAR ── */
+  #top-bar {
+    position: relative;
+    z-index: 100;
+    background: var(--gold);
+    color: var(--jet);
+    text-align: center;
+    padding: 11px 52px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+  #top-bar-dismiss {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.12);
+    border: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--jet);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+  }
+  #top-bar-dismiss:hover { background: rgba(0,0,0,0.22); }
+
+  /* ── APP SHELL ── */
+  #app {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  main { flex: 1; display: flex; flex-direction: column; }
+
+  /* ── LOGO ── */
+  .logo-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 0;
+  }
+  .logo-wrap img {
+    height: 40px;
+    filter: brightness(0) invert(1);
+  }
+
+  /* ── REGISTER SCREEN ── */
+  #screen-register {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px 72px;
+    min-height: calc(100vh - 100px);
+  }
+
+  .register-card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 20px;
+    padding: 52px 56px;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  @media(max-width:580px){ .register-card { padding: 36px 24px; } }
+
+  .register-card .eyebrow {
+    font-weight: 300;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+    line-height: 1.7;
+  }
+
+  .gold-rule {
+    width: 48px; height: 2px;
+    background: var(--gold);
+    margin: 16px auto 20px;
+    border-radius: 2px;
+  }
+
+  .register-card h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 7vw, 4.4rem);
+    letter-spacing: 0.04em;
+    line-height: 0.92;
+    color: var(--white);
+    margin-bottom: 36px;
+  }
+  .register-card h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .input-wrap {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .input-wrap input {
+    width: 100%;
+    padding: 15px 18px;
+    background: rgba(255,255,255,0.09);
+    border: 1.5px solid rgba(255,255,255,0.18);
+    border-radius: 10px;
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .input-wrap input::placeholder { color: rgba(255,255,255,0.35); }
+  .input-wrap input:focus {
+    border-color: var(--gold);
+    background: rgba(255,255,255,0.13);
+  }
+
+  .error-msg {
+    color: var(--coral);
+    font-size: 0.8rem;
+    min-height: 20px;
+    margin-bottom: 6px;
+    text-align: left;
+    padding-left: 2px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 16px 24px;
+    background: var(--gold);
+    color: var(--jet);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.14em;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+    display: block;
+  }
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(247,198,49,0.45);
+  }
+  .btn-primary:active:not(:disabled) { transform: translateY(0); }
+  .btn-primary:disabled {
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.35);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .btn-ghost {
+    width: 100%;
+    padding: 14px 24px;
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+    display: block;
+  }
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(247,198,49,0.6);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+
+  /* ── FIREBASE STATUS BADGE ── */
+  #firebase-status {
+    margin-top: 14px;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+    min-height: 16px;
+  }
+  #firebase-status.error { color: var(--coral); }
+  #firebase-status.ok { color: rgba(100,220,120,0.7); }
+
+  /* ── COMPETITORS SCREEN ── */
+  #screen-competitors {
+    display: none;
+    flex-direction: column;
+    padding: 24px 24px 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .back-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 8px 0;
+    margin-bottom: 12px;
+    transition: color 0.2s;
+    text-align: left;
+  }
+  .back-btn:hover { color: var(--gold); }
+
+  .screen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .screen-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+  .screen-header h2 em { font-style: normal; color: var(--gold); }
+
+  .tab-bar { display: flex; gap: 8px; }
+  .tab-btn {
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.7);
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    background: var(--gold);
+    color: var(--jet);
+    border-color: var(--gold);
+    font-weight: 700;
+  }
+  .tab-btn:hover:not(.active) {
+    border-color: rgba(247,198,49,0.5);
+    color: var(--white);
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ── TEAMS GRID ── */
+  .teams-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  @media(max-width:1100px){ .teams-grid { grid-template-columns: repeat(3,1fr); } }
+  @media(max-width:680px)  { .teams-grid { grid-template-columns: repeat(2,1fr); } }
+
+  .team-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 13px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.2s, transform 0.15s, background 0.2s;
+  }
+  .team-card:hover {
+    border-color: rgba(247,198,49,0.35);
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.08);
+  }
+  .team-card.mine {
+    border-color: var(--gold);
+    background: rgba(247,198,49,0.07);
+    box-shadow: 0 0 16px rgba(247,198,49,0.12);
+  }
+
+  .team-top { display: flex; align-items: center; gap: 10px; }
+
+  .flag-img {
+    width: 40px;
+    height: 27px;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.12);
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .team-info .country { font-weight: 700; font-size: 0.86rem; line-height: 1.2; }
+  .team-info .grp-lbl { font-size: 0.68rem; color: rgba(255,255,255,0.38); margin-top: 1px; }
+
+  .team-owner {
+    font-size: 0.76rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold);
+    padding-top: 5px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .team-owner.empty { color: rgba(255,255,255,0.25); font-style: normal; font-size: 0.72rem; }
+
+  /* ── GROUPS GRID ── */
+  .groups-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media(max-width:860px)  { .groups-grid { grid-template-columns: repeat(2,1fr); } }
+  @media(max-width:520px)  { .groups-grid { grid-template-columns: 1fr; } }
+
+  .group-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .group-header {
+    background: linear-gradient(90deg, var(--purple), rgba(31,96,124,0.8));
+    padding: 11px 16px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+  }
+  .group-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.15s;
+  }
+  .group-row:last-child { border-bottom: none; }
+  .group-row:hover { background: rgba(255,255,255,0.04); }
+  .group-row .country { font-weight: 700; font-size: 0.82rem; flex: 1; min-width: 0; }
+  .group-row .g-owner {
+    font-size: 0.72rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold);
+    text-align: right;
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+  }
+  .group-row .g-owner.empty { color: rgba(255,255,255,0.22); font-style: normal; }
+
+  /* ── RESULT MODAL ── */
+  #result-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 400;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20,10,30,0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px;
+  }
+  #result-modal.open { display: flex; }
+
+  .result-inner {
+    background: linear-gradient(145deg, #2d1640 0%, #0d3347 100%);
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 48px 44px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 48px 120px rgba(0,0,0,0.7), 0 0 60px rgba(247,198,49,0.08);
+    animation: boomIn 0.45s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+  }
+  @keyframes boomIn {
+    from { transform: scale(0.65) translateY(20px); opacity: 0; }
+    to   { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  .result-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .result-person {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.9rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 28px;
+    line-height: 1;
+  }
+  .result-flag-ring {
+    width: 108px;
+    height: 72px;
+    margin: 0 auto 18px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 4px rgba(247,198,49,0.15), 0 12px 32px rgba(0,0,0,0.5);
+  }
+  .result-flag-ring img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .result-team-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.07em;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .result-group-tag {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+  }
+  .btn-result-ok {
+    width: 100%;
+    padding: 15px;
+    background: var(--gold);
+    color: var(--jet);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    margin-bottom: 14px;
+  }
+  .btn-result-ok:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(247,198,49,0.4); }
+  .result-hint {
+    font-size: 0.74rem;
+    color: rgba(255,255,255,0.38);
+    line-height: 1.5;
+  }
+
+  /* ── INLINE SPINNER (non-blocking) ── */
+  .mini-spinner {
+    display: inline-block;
+    width: 16px; height: 16px;
+    border: 2px solid rgba(43,42,39,0.3);
+    border-top-color: var(--jet);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 2;
+    background: rgba(20,18,15,0.96);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 18px 24px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.38);
+    line-height: 1.8;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
 </head>
 <body>
 
-    <div id="welcomeModal" class="modal-overlay">
-        <div class="reveal-card">
-            <h2 style="color: var(--purple); font-weight: 800; margin-bottom: 10px;">
-                Welcome to the IMI Lakeside<br>World Cup 2026 Sweepstakes!
-            </h2>
-            <p style="margin-bottom: 20px;">Ready to join the action? All we need is your name so that team IMI can cheer you on and for us to track you down if you win the big prize!</p>
-            <p style="font-size: 0.85rem; color: #666; margin-bottom: 25px;">
-                Since this is an AI-powered project, we can't predict how this app will perform throughout the tournament — don't worry, like the England team, it's a learning curve, but rest assured we're keeping a close eye on the pitch.<br><br>
-                Heads up: If you clear your browser cache and revisit, you might see the registration screen again - just tap "I have a team/I'm a spectator" to jump straight back into the game!
-            </p>
-            <button class="btn" onclick="document.getElementById('welcomeModal').classList.add('hidden')">GET THE BALL ROLLING...</button>
+<!-- Result Modal -->
+<div id="result-modal">
+  <div class="result-inner">
+    <p class="result-eyebrow">🎉 Your team has been drawn!</p>
+    <div class="result-person" id="r-name"></div>
+    <div class="result-flag-ring"><img id="r-flag" src="" alt=""></div>
+    <div class="result-team-name" id="r-team"></div>
+    <div class="result-group-tag" id="r-group"></div>
+    <button class="btn-result-ok" id="btn-result-ok">LET'S GO — VIEW ALL COMPETITORS</button>
+    <p class="result-hint">Bookmark this page to track your team throughout the tournament!</p>
+  </div>
+</div>
+
+<div id="app">
+  <!-- Top bar -->
+  <div id="top-bar">
+    Welcome to the IMI Arena! Add this page to your bookmarks to track your sweepstakes team!
+    <button id="top-bar-dismiss" title="Dismiss">✕</button>
+  </div>
+
+  <main>
+    <div class="logo-wrap">
+      <img src="https://www.imiplc.com/assets/img/logo-imi.svg" alt="IMI" onerror="this.style.display='none'">
+    </div>
+
+    <!-- ── REGISTER SCREEN (shown by default) ── -->
+    <div id="screen-register">
+      <div class="register-card">
+        <p class="eyebrow">Welcome to the IMI Industrial Automation<br>Lakeside World Cup 2026 Sweepstakes!</p>
+        <div class="gold-rule"></div>
+        <h1>Enter the <em>IMI</em><br>Stadium</h1>
+        <div class="input-wrap">
+          <input type="text" id="name-input" placeholder="Please enter your name here (so we know how to contact the winner!)" maxlength="80" autocomplete="off">
         </div>
+        <div class="error-msg" id="error-msg"></div>
+        <button class="btn-primary" id="btn-draw">SHOW ME MY TEAM</button>
+        <button class="btn-ghost" id="btn-view">SHOW ME THE COMPETITORS</button>
+        <div id="firebase-status"></div>
+      </div>
     </div>
 
-    <div id="teamRevealModal" class="modal-overlay hidden">
-        <div class="reveal-card">
-            <h2 style="color: var(--teal); font-weight: 800;">Your Sweepstakes Team is...</h2>
-            <div class="reveal-flag-wrapper" id="revealFlagContainer">
-            </div>
-            <div class="reveal-country-name" id="revealCountryText">Canada</div>
-            <p style="color: #555; margin-bottom: 25px; font-size: 0.95rem;">
-                Your details are saved! Track your performance against colleagues throughout the tournament grid.
-            </p>
-            <button class="btn" onclick="dismissRevealAndGoToBoard()">Go to Tournament Board</button>
+    <!-- ── COMPETITORS SCREEN (hidden by default) ── -->
+    <div id="screen-competitors">
+      <button class="back-btn" id="btn-back">← Back to Entry</button>
+      <div class="screen-header">
+        <h2>World Cup 2026 <em>Competitors</em></h2>
+        <div class="tab-bar">
+          <button class="tab-btn active" id="tab-all">All Teams</button>
+          <button class="tab-btn" id="tab-groups">Group Stages</button>
         </div>
+      </div>
+      <div id="view-all">
+        <div class="teams-grid" id="teams-grid"></div>
+      </div>
+      <div id="view-groups" style="display:none;">
+        <div class="groups-grid" id="groups-grid"></div>
+      </div>
     </div>
+  </main>
 
-    <button class="btn-demo-trigger hidden" id="demoTriggerBtn" onclick="forceDemoWinner()">⚡ Demo Winner Screen</button>
+  <footer>
+    This sweepstake is hosted by the IMI Industrial Automation Digital Marketing Team at Lakeside.<br>
+    Having a technical own goal? Point your finger (or your questions) at Stuart Hunter:
+    <a href="mailto:stuart.hunter@imi-precision.com">stuart.hunter@imi-precision.com</a>
+  </footer>
+</div>
 
-    <div class="bookmark-banner" id="bookmarkBanner">
-        <span>Welcome to the IMI World Cup Arena! Add this page to your bookmarks to keep track of your team!</span>
-        <button onclick="document.getElementById('bookmarkBanner').remove()">Dismiss</button>
-    </div>
+<!--
+  Firebase loaded via CDN compat build.
+  If CDN fails (e.g. offline), the catch() in init() will handle it gracefully.
+-->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
-    <div class="header-wrapper">
-        <header>
-            <img src="https://www.imiplc.com/assets/img/logo-imi.svg" alt="IMI Logo" class="logo">
-            <div class="header-title">
-                <h1>World Cup 2026 Sweepstakes | IMI Lakeside</h1>
-            </div>
-        </header>
-    </div>
+<script>
+(function () {
+  'use strict';
 
-    <div class="main-wrapper">
-        <div class="container">
-            
-            <div id="registration-view" class="card">
-                <h2 style="color: var(--purple); margin-bottom: 20px; text-align: center;">Enter the IMI Stadium</h2>
-                <form id="sweepstakesForm">
-                    <div class="form-group">
-                        <label for="fullName">Full Name (so we know if you're the winner)</label>
-                        <input type="text" id="fullName" required placeholder="Please enter your full name here">
-                    </div>
-                    
-                    <div class="btn-stack">
-                        <button type="submit" class="btn">SHOW ME MY TEAM</button>
-                        <button type="button" class="btn btn-secondary" id="btnSpectatorMode">I HAVE A TEAM/I'M A SPECTATOR</button>
-                    </div>
-                </form>
-            </div>
+  // ─────────────────────────────────────────────
+  // WORLD CUP 2026 DATA
+  // 12 groups × 4 teams = 48 teams
+  // ─────────────────────────────────────────────
+  var GROUPS = {
+    A: ['USA', 'Panama', 'Algeria', 'Morocco'],
+    B: ['Mexico', 'Ecuador', 'Poland', 'Ukraine'],
+    C: ['Canada', 'Honduras', 'Serbia', 'New Zealand'],
+    D: ['Spain', 'Costa Rica', 'Japan', 'Senegal'],
+    E: ['Brazil', 'Chile', 'Norway', 'South Korea'],
+    F: ['Germany', 'Portugal', 'Austria', 'Saudi Arabia'],
+    G: ['France', 'Belgium', 'Australia', 'Venezuela'],
+    H: ['Argentina', 'Peru', 'Iran', 'Nigeria'],
+    I: ['England', 'Colombia', 'Cameroon', 'Paraguay'],
+    J: ['Netherlands', 'Uruguay', 'Egypt', 'Turkey'],
+    K: ['Italy', 'Switzerland', 'Ivory Coast', 'Qatar'],
+    L: ['Croatia', 'Denmark', 'Guatemala', 'DR Congo']
+  };
 
-            <div id="dashboard-view" class="app-grid hidden">
-                
-                <div class="sidebar">
-                    <h2>Global Goal Getters</h2>
-                    <div id="cheerCallout" class="cheer-note">
-                        📢 The tournament has concluded! Here is the final leaderboard.
-                        <button class="dismiss-btn" onclick="document.getElementById('cheerCallout').remove()">Dismiss</button>
-                    </div>
-                    <div class="entrant-list" id="entrantsContainer">
-                    </div>
-                </div>
+  // ISO 3166-1 alpha-2 codes for flagcdn.com
+  var FLAGS = {
+    'USA':'us','Panama':'pa','Algeria':'dz','Morocco':'ma',
+    'Mexico':'mx','Ecuador':'ec','Poland':'pl','Ukraine':'ua',
+    'Canada':'ca','Honduras':'hn','Serbia':'rs','New Zealand':'nz',
+    'Spain':'es','Costa Rica':'cr','Japan':'jp','Senegal':'sn',
+    'Brazil':'br','Chile':'cl','Norway':'no','South Korea':'kr',
+    'Germany':'de','Portugal':'pt','Austria':'at','Saudi Arabia':'sa',
+    'France':'fr','Belgium':'be','Australia':'au','Venezuela':'ve',
+    'Argentina':'ar','Peru':'pe','Iran':'ir','Nigeria':'ng',
+    'England':'gb-eng','Colombia':'co','Cameroon':'cm','Paraguay':'py',
+    'Netherlands':'nl','Uruguay':'uy','Egypt':'eg','Turkey':'tr',
+    'Italy':'it','Switzerland':'ch','Ivory Coast':'ci','Qatar':'qa',
+    'Croatia':'hr','Denmark':'dk','Guatemala':'gt','DR Congo':'cd'
+  };
 
-                <div class="main-content">
-                    <div class="tabs">
-                        <div class="tab active" onclick="switchTab('group')">Group Stages</div>
-                        <div class="tab" onclick="switchTab('knockout')">Knockout Bracket</div>
-                    </div>
+  function flagUrl(country) {
+    var code = FLAGS[country] || 'un';
+    return 'https://flagcdn.com/w80/' + code + '.png';
+  }
 
-                    <div id="group-tab" class="group-grid">
-                    </div>
+  // Flat ordered list of {team, group}
+  var ALL_TEAMS = [];
+  Object.keys(GROUPS).forEach(function (g) {
+    GROUPS[g].forEach(function (t) { ALL_TEAMS.push({ team: t, group: g }); });
+  });
 
-                    <div id="knockout-tab" class="bracket-container hidden">
-                        <div class="bracket-round">
-                            <h4>Quarter-Finals</h4>
-                            <div class="matchup">
-                                <div class="match-team winner"><span>🇩🇪 Germany <small>(Sarah J.)</small></span> <span>2</span></div>
-                                <div class="match-team"><span>🇦🇷 Argentina <small>(David V.)</small></span> <span>1</span></div>
-                            </div>
-                            <div class="matchup">
-                                <div class="match-team winner"><span>🇩🇰 Denmark <small>(Emma W.)</small></span> <span>3</span></div>
-                                <div class="match-team"><span>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland <small>(Alex M.)</small></span> <span>0</span></div>
-                            </div>
-                            <div class="matchup">
-                                <div class="match-team winner"><span>🇺🇸 USA <small>(Alex H.)</small></span> <span>1</span></div>
-                                <div class="match-team"><span>🇫🇷 France <small>(Michael C.)</small></span> <span>0</span></div>
-                            </div>
-                            <div class="matchup">
-                                <div class="match-team winner"><span>🇧🇷 Brazil <small>(Liam O.)</small></span> <span>2</span></div>
-                                <div class="match-team"><span>🇪🇸 Spain <small>(Elena R.)</small></span> <span>1</span></div>
-                            </div>
-                        </div>
-                        <div class="bracket-round">
-                            <h4>Semi-Finals</h4>
-                            <div class="matchup">
-                                <div class="match-team winner"><span>🇩🇪 Germany <small>(Sarah J.)</small></span> <span>2</span></div>
-                                <div class="match-team"><span>🇩🇰 Denmark <small>(Emma W.)</small></span> <span>0</span></div>
-                            </div>
-                            <div class="matchup">
-                                <div class="match-team winner"><span>🇺🇸 USA <small>(Alex H.)</small></span> <span>1</span></div>
-                                <div class="match-team"><span>🇧🇷 Brazil <small>(Liam O.)</small></span> <span>0</span></div>
-                            </div>
-                        </div>
-                        <div class="bracket-round">
-                            <h4>Final</h4>
-                            <div class="matchup" style="border: 2px solid var(--gold); background: #fffdf3;">
-                                <div class="match-team" id="bracketFinalist1"><span>🇩🇪 Germany <small>(Sarah J.)</small></span> <span>0</span></div>
-                                <div class="match-team winner" id="bracketFinalist2"><span>🇺🇸 USA <small id="finalistPlaceholder">(You)</small></span> <span>1</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  // ─────────────────────────────────────────────
+  // STATE
+  // ─────────────────────────────────────────────
+  var assignments = {};       // { teamName: personName }
+  var currentUser = null;     // { name, assignment: {team, group} }
+  var firebaseReady = false;
+  var db = null;
+  var USER_KEY = 'imi_wc26_v2';
+  var DB_DOC = 'assignments';
+  var DB_COLL = 'sweepstakes';
 
-            <div id="winner-screen" class="card hidden">
-                <div class="trophy">🏆</div>
-                <h2 class="winner-title">World Cup Champion!</h2>
-                
-                <div class="winner-showcase">
-                    <div class="winner-name" id="winnerNameDisplay">Alex Hunter</div>
-                    <div class="winner-details" id="winnerDivDisplay">IMI Industrial Automation</div>
-                </div>
-                
-                <h3 style="margin-top: 10px; color: var(--purple); font-size: 1.6rem;" id="winnerTeamDisplay">🇺🇸 Team: USA</h3>
-                
-                <p style="margin-top: 15px; font-size: 0.9rem; color: #555;">An email notification has been dispatched to arrange prize presentation details.</p>
-                <button class="btn" style="max-width:250px; margin: 25px auto 0 auto; display:block;" onclick="resetToDashboard()">View Tournament Board</button>
-            </div>
-        </div>
-    </div>
+  // ─────────────────────────────────────────────
+  // DOM ELEMENTS
+  // ─────────────────────────────────────────────
+  var elRegister    = document.getElementById('screen-register');
+  var elCompetitors = document.getElementById('screen-competitors');
+  var elResultModal = document.getElementById('result-modal');
+  var elNameInput   = document.getElementById('name-input');
+  var elErrorMsg    = document.getElementById('error-msg');
+  var elBtnDraw     = document.getElementById('btn-draw');
+  var elBtnView     = document.getElementById('btn-view');
+  var elBtnBack     = document.getElementById('btn-back');
+  var elBtnResultOk = document.getElementById('btn-result-ok');
+  var elTabAll      = document.getElementById('tab-all');
+  var elTabGroups   = document.getElementById('tab-groups');
+  var elViewAll     = document.getElementById('view-all');
+  var elViewGroups  = document.getElementById('view-groups');
+  var elTopBar      = document.getElementById('top-bar');
+  var elFBStatus    = document.getElementById('firebase-status');
 
-    <footer>
-        <p>This sweepstake is hosted by the IMI Industrial Automation Digital Marketing Team at Lakeside.</p>
-        <p>Having a technical own goal? Point your finger (or your questions) at Stuart Hunter: <a href="mailto:stuart.hunter@imi-precision.com">stuart.hunter@imi-precision.com</a>.</p>
-    </footer>
+  // ─────────────────────────────────────────────
+  // UI HELPERS
+  // ─────────────────────────────────────────────
+  function setFBStatus(msg, type) {
+    elFBStatus.textContent = msg || '';
+    elFBStatus.className = type || '';
+  }
 
-    <script>
-        const countryFlags = {
-            "USA": "🇺🇸", "Germany": "🇩🇪", "Argentina": "🇦🇷", "Denmark": "🇩🇰", "Scotland": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-            "France": "🇫🇷", "Brazil": "🇧🇷", "England": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Spain": "🇪🇸", "Italy": "🇮🇹",
-            "Netherlands": "🇳🇱", "Portugal": "🇵🇹", "Mexico": "🇲🇽", "Belgium": "🇧🇪", "Jamaica": "🇯🇲",
-            "Canada": "🇨🇦", "Saudi Arabia": "🇸🇦", "Poland": "🇵🇱", "Tunisia": "🇹🇳", "Australia": "🇦🇺",
-            "Japan": "🇯🇵", "Costa Rica": "🇨🇷", "Morocco": "🇲🇦", "Croatia": "🇭🇷", "Switzerland": "🇨🇭",
-            "Cameroon": "🇨🇲", "Serbia": "🇷🇸", "Ghana": "🇬🇭", "Uruguay": "🇺🇾", "South Korea": "🇰🇷",
-            "Ecuador": "🇪🇨", "Senegal": "🇸🇳"
-        };
+  function setBtnDrawState(loading) {
+    var available = ALL_TEAMS.filter(function (t) { return !assignments[t.team]; });
+    if (available.length === 0) {
+      elBtnDraw.innerHTML = 'SOLD OUT';
+      elBtnDraw.disabled = true;
+    } else if (loading) {
+      elBtnDraw.innerHTML = '<span class="mini-spinner"></span>Drawing…';
+      elBtnDraw.disabled = true;
+    } else {
+      elBtnDraw.innerHTML = 'SHOW ME MY TEAM';
+      elBtnDraw.disabled = false;
+    }
+  }
 
-        const mockEntrantsList = [
-            { name: "Sarah Jenkins", team: "Germany", status: "Cheering from the Sidelines" },
-            { name: "David Vance", team: "Argentina", status: "Cheering from the Sidelines" },
-            { name: "Emma Wright", team: "Denmark", status: "Cheering from the Sidelines" },
-            { name: "Alex Mercer", team: "Scotland", status: "Cheering from the Sidelines" },
-            { name: "Michael Chang", team: "France", status: "Cheering from the Sidelines" },
-            { name: "Sofia Rossi", team: "Italy", status: "Cheering from the Sidelines" },
-            { name: "Liam O'Connor", team: "Brazil", status: "Cheering from the Sidelines" },
-            { name: "Clara Dupont", team: "Belgium", status: "Cheering from the Sidelines" },
-            { name: "Marcus Aurelius", team: "England", status: "Cheering from the Sidelines" },
-            { name: "Elena Rostova", team: "Spain", status: "Cheering from the Sidelines" },
-            { name: "Sven Lindstrom", team: "Netherlands", status: "Cheering from the Sidelines" },
-            { name: "Amara Adebayo", team: "Portugal", status: "Cheering from the Sidelines" },
-            { name: "Diego Garcia", team: "Mexico", status: "Cheering from the Sidelines" },
-            { name: "Chloe Bennett", team: "Jamaica", status: "Cheering from the Sidelines" },
-            { name: "Oliver Davies", team: "Canada", status: "Cheering from the Sidelines" },
-            { name: "Tariq Al-Mansoor", team: "Saudi Arabia", status: "Cheering from the Sidelines" },
-            { name: "Jan Kowalski", team: "Poland", status: "Cheering from the Sidelines" },
-            { name: "Fatima Mansour", team: "Tunisia", status: "Cheering from the Sidelines" },
-            { name: "Lachlan McIntosh", team: "Australia", status: "Cheering from the Sidelines" },
-            { name: "Kenji Sato", team: "Japan", status: "Cheering from the Sidelines" },
-            { name: "Luis Montero", team: "Costa Rica", status: "Cheering from the Sidelines" },
-            { name: "Youssef El-Amin", team: "Morocco", status: "Cheering from the Sidelines" },
-            { name: "Luka Modric", team: "Croatia", status: "Cheering from the Sidelines" },
-            { name: "Heidi Müller", team: "Switzerland", status: "Cheering from the Sidelines" },
-            { name: "Samuel Eto'o", team: "Cameroon", status: "Cheering from the Sidelines" },
-            { name: "Nikola Tesla", team: "Serbia", status: "Cheering from the Sidelines" },
-            { name: "Kwame Mensah", team: "Ghana", status: "Cheering from the Sidelines" },
-            { name: "Edinson Cavani", team: "Uruguay", status: "Cheering from the Sidelines" },
-            { name: "Min-ho Kim", team: "South Korea", status: "Cheering from the Sidelines" },
-            { name: "Antonio Valencia", team: "Ecuador", status: "Cheering from the Sidelines" }
-        ];
+  function showRegister() {
+    elCompetitors.style.display = 'none';
+    elRegister.style.display = 'flex';
+  }
 
-        const dynamicTeamsPool = ["Canada", "France", "Brazil", "England", "Spain", "Netherlands", "Portugal", "Germany"];
-        let allTeamsAssigned = true; 
-        let currentUser = null;
+  function showCompetitors() {
+    renderTeamsGrid();
+    renderGroupsGrid();
+    elRegister.style.display = 'none';
+    elCompetitors.style.display = 'flex';
+    elResultModal.classList.remove('open');
+  }
 
-        document.getElementById('sweepstakesForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('fullName').value;
-            const assignedTeam = dynamicTeamsPool[Math.floor(Math.random() * dynamicTeamsPool.length)];
-            currentUser = { name, team: assignedTeam, status: "Winner" };
-            localStorage.setItem('imi_sweepstake_user', JSON.stringify(currentUser));
-            triggerTeamRevealModal(assignedTeam);
-        });
+  function showResultModal(name, pick) {
+    document.getElementById('r-name').textContent = name;
+    document.getElementById('r-team').textContent = pick.team;
+    document.getElementById('r-group').textContent = 'Group ' + pick.group + ' · FIFA World Cup 2026';
+    var img = document.getElementById('r-flag');
+    img.src = flagUrl(pick.team);
+    img.alt = pick.team;
+    elResultModal.classList.add('open');
+  }
 
-        function triggerTeamRevealModal(teamName) {
-            const modal = document.getElementById('teamRevealModal');
-            const flagContainer = document.getElementById('revealFlagContainer');
-            const countryText = document.getElementById('revealCountryText');
-            const flag = countryFlags[teamName] || "🏳️";
-            flagContainer.innerHTML = flag;
-            countryText.textContent = teamName;
-            twemoji.parse(flagContainer);
-            modal.classList.remove('hidden');
-            confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 }, colors: ['#1f607c', '#f7c631', '#2e7d32'] });
+  // ─────────────────────────────────────────────
+  // RENDER
+  // ─────────────────────────────────────────────
+  function renderTeamsGrid() {
+    var grid = document.getElementById('teams-grid');
+    grid.innerHTML = '';
+    ALL_TEAMS.forEach(function (item) {
+      var owner    = assignments[item.team] || null;
+      var isMine   = currentUser && currentUser.assignment && currentUser.assignment.team === item.team;
+      var card     = document.createElement('div');
+      card.className = 'team-card' + (isMine ? ' mine' : '');
+      card.innerHTML =
+        '<div class="team-top">' +
+          '<img class="flag-img" src="' + flagUrl(item.team) + '" alt="' + item.team + '" loading="lazy">' +
+          '<div class="team-info">' +
+            '<div class="country">' + item.team + '</div>' +
+            '<div class="grp-lbl">Group ' + item.group + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="team-owner' + (owner ? '' : ' empty') + '">' +
+          (owner ? '🏆 ' + owner : 'Available') +
+        '</div>';
+      grid.appendChild(card);
+    });
+  }
+
+  function renderGroupsGrid() {
+    var grid = document.getElementById('groups-grid');
+    grid.innerHTML = '';
+    Object.keys(GROUPS).forEach(function (g) {
+      var card = document.createElement('div');
+      card.className = 'group-card';
+      var rows = GROUPS[g].map(function (team) {
+        var owner = assignments[team] || null;
+        return '<div class="group-row">' +
+          '<img class="flag-img" src="' + flagUrl(team) + '" alt="' + team + '" loading="lazy">' +
+          '<span class="country">' + team + '</span>' +
+          '<span class="g-owner' + (owner ? '' : ' empty') + '">' + (owner || '—') + '</span>' +
+        '</div>';
+      }).join('');
+      card.innerHTML = '<div class="group-header">Group ' + g + '</div>' + rows;
+      grid.appendChild(card);
+    });
+  }
+
+  // ─────────────────────────────────────────────
+  // FIREBASE OPERATIONS
+  // ─────────────────────────────────────────────
+  function fetchAssignments() {
+    return db.collection(DB_COLL).doc(DB_DOC).get().then(function (snap) {
+      if (snap.exists) {
+        assignments = snap.data().teams || {};
+      }
+    });
+  }
+
+  function saveAssignment(name, pick, allTeams) {
+    return db.collection(DB_COLL).doc(DB_DOC).set({ teams: allTeams });
+  }
+
+  function listenForChanges() {
+    db.collection(DB_COLL).doc(DB_DOC).onSnapshot(function (snap) {
+      if (snap.exists) {
+        assignments = snap.data().teams || {};
+        setBtnDrawState(false);
+        // Re-render if competitors screen is visible
+        if (elCompetitors.style.display !== 'none') {
+          renderTeamsGrid();
+          renderGroupsGrid();
         }
+      }
+    }, function (err) {
+      console.warn('Snapshot error:', err);
+    });
+  }
 
-        function dismissRevealAndGoToBoard() {
-            document.getElementById('teamRevealModal').classList.add('hidden');
-            loadDashboard();
-        }
+  // ─────────────────────────────────────────────
+  // DRAW HANDLER
+  // ─────────────────────────────────────────────
+  function handleDraw() {
+    var name = elNameInput.value.trim();
+    if (!name) {
+      elErrorMsg.textContent = 'Please enter your name to continue!';
+      elNameInput.focus();
+      return;
+    }
+    elErrorMsg.textContent = '';
 
-        document.getElementById('btnSpectatorMode').addEventListener('click', function() {
-            const cachedData = localStorage.getItem('imi_sweepstake_user');
-            if (cachedData) {
-                currentUser = JSON.parse(cachedData);
-            } else {
-                currentUser = null; 
-            }
-            loadDashboard();
-        });
+    if (!firebaseReady) {
+      elErrorMsg.textContent = 'Still connecting to Firebase — please wait a moment and try again.';
+      return;
+    }
 
-        function loadDashboard() {
-            document.getElementById('registration-view').classList.add('hidden');
-            document.getElementById('demoTriggerBtn').classList.remove('hidden');
-            document.getElementById('dashboard-view').classList.remove('hidden');
-            renderEntrantsSidePanel();
-            renderGroupStageTablesLayout();
-            
-            // Sync Bracket with User Data
-            if (currentUser) {
-                const bracketTeam = document.getElementById('bracketFinalist2');
-                bracketTeam.innerHTML = `<span>${countryFlags[currentUser.team] || "🏳️"} ${currentUser.team} <small id="finalistPlaceholder">(${currentUser.name})</small></span> <span>1</span>`;
-            }
-            
-            twemoji.parse(document.body);
-        }
+    setBtnDrawState(true);
 
-        function renderEntrantsSidePanel() {
-            const container = document.getElementById('entrantsContainer');
-            container.innerHTML = '';
-            
-            let displayList = mockEntrantsList.map(item => ({...item}));
-            if (currentUser) {
-                displayList = displayList.map(item => ({
-                    ...item,
-                    status: item.team === currentUser.team ? 'Winner' : 'Cheering from the Sidelines'
-                }));
-            }
+    // Always re-fetch from Firestore to avoid races
+    db.collection(DB_COLL).doc(DB_DOC).get().then(function (snap) {
+      var current = snap.exists ? (snap.data().teams || {}) : {};
+      var available = ALL_TEAMS.filter(function (t) { return !current[t.team]; });
 
-            displayList.sort((a, b) => {
-                if (a.status === 'Winner') return -1;
-                if (b.status === 'Winner') return 1;
-                return a.name.localeCompare(b.name);
-            });
+      if (available.length === 0) {
+        assignments = current;
+        setBtnDrawState(false);
+        return;
+      }
 
-            displayList.forEach(item => {
-                const isWinner = item.status === 'Winner';
-                let badgeStyle = isWinner ? 'status-winner' : 'status-eliminated';
-                let badgeText = isWinner ? 'World Cup Winner' : 'Cheering from the Sidelines';
+      var pick = available[Math.floor(Math.random() * available.length)];
+      current[pick.team] = name;
 
-                const isCurrentActiveUser = currentUser && item.name === currentUser.name ? 'active-user' : '';
-                const flagToken = countryFlags[item.team] || "🏳️";
+      return db.collection(DB_COLL).doc(DB_DOC).set({ teams: current }).then(function () {
+        assignments = current;
+        currentUser = { name: name, assignment: pick };
+        try { localStorage.setItem(USER_KEY, JSON.stringify(currentUser)); } catch (e) {}
+        setBtnDrawState(false);
+        showResultModal(name, pick);
+      });
 
-                container.innerHTML += `
-                    <div class="entrant-card ${isCurrentActiveUser}">
-                        <div class="entrant-name" style="color: #1f607c; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 5px;">
-                            ${item.name} ${isCurrentActiveUser ? ' (You)' : ''}
-                        </div>
-                        <div class="entrant-team">
-                            <strong>${flagToken} ${item.team}</strong>
-                            <span class="status-badge ${badgeStyle}">${badgeText}</span>
-                        </div>
-                    </div>
-                `;
-            });
-        }
+    }).catch(function (err) {
+      console.error('Draw error:', err);
+      setBtnDrawState(false);
+      elErrorMsg.textContent = 'Something went wrong (' + (err.code || err.message) + '). Please try again.';
+    });
+  }
 
-        function renderGroupStageTablesLayout() {
-            const container = document.getElementById('group-tab');
-            container.innerHTML = '';
-            const worldCupGroupsData = [
-                { name: 'Group A', teams: [{t: 'USA', p: 7}, {t: 'Mexico', p: 4}, {t: 'Canada', p: 3}, {t: 'Ecuador', p: 1}] },
-                { name: 'Group B', teams: [{t: 'Germany', p: 9}, {t: 'Scotland', p: 4}, {t: 'Argentina', p: 2}, {t: 'Saudi Arabia', p: 1}] },
-                { name: 'Group C', teams: [{t: 'France', p: 7}, {t: 'Australia', p: 6}, {t: 'Poland', p: 4}, {t: 'Tunisia', p: 0}] },
-                { name: 'Group D', teams: [{t: 'England', p: 7}, {t: 'Senegal', p: 5}, {t: 'Japan', p: 4}, {t: 'Costa Rica', p: 0}] },
-                { name: 'Group E', teams: [{t: 'Spain', p: 9}, {t: 'Germany', p: 4}, {t: 'Costa Rica', p: 3}, {t: 'Japan', p: 1}] },
-                { name: 'Group F', teams: [{t: 'Belgium', p: 7}, {t: 'Croatia', p: 5}, {t: 'Morocco', p: 2}, {t: 'Canada', p: 1}] },
-                { name: 'Group G', teams: [{t: 'Brazil', p: 9}, {t: 'Switzerland', p: 4}, {t: 'Cameroon', p: 3}, {t: 'Serbia', p: 1}] },
-                { name: 'Group H', teams: [{t: 'Portugal', p: 7}, {t: 'South Korea', p: 5}, {t: 'Uruguay', p: 4}, {t: 'Ghana', p: 0}] }
-            ];
+  // ─────────────────────────────────────────────
+  // EVENT LISTENERS
+  // ─────────────────────────────────────────────
+  document.getElementById('top-bar-dismiss').addEventListener('click', function () {
+    elTopBar.style.display = 'none';
+  });
 
-            function getAssigneeName(teamName) {
-                if (currentUser && currentUser.team === teamName) {
-                    return currentUser.name + " (You)";
-                }
-                const match = mockEntrantsList.find(entrant => entrant.team === teamName);
-                if (match) return match.name;
-                return "Unassigned";
-            }
+  elBtnDraw.addEventListener('click', handleDraw);
 
-            worldCupGroupsData.forEach(g => {
-                let rows = g.teams.map((t, index) => {
-                    const icon = countryFlags[t.t] || "🏳️";
-                    const assignee = getAssigneeName(t.t);
-                    return `
-                        <tr>
-                            <td>${index + 1}</td>
-                            <td>
-                                <strong>${icon} ${t.t}</strong>
-                                <span class="table-assignee">${assignee}</span>
-                            </td>
-                            <td>${t.p}</td>
-                        </tr>
-                    `;
-                }).join('');
+  elNameInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') handleDraw();
+  });
 
-                container.innerHTML += `
-                    <div class="group-table">
-                        <h3>${g.name}</h3>
-                        <table>
-                            <thead><tr><th>#</th><th>Country / Player</th><th>Pts</th></tr></thead>
-                            <tbody>${rows}</tbody>
-                        </table>
-                    </div>
-                `;
-            });
-        }
+  elBtnView.addEventListener('click', showCompetitors);
 
-        function switchTab(targetTab) {
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            if(targetTab === 'group') {
-                document.querySelectorAll('.tab')[0].classList.add('active');
-                document.getElementById('group-tab').classList.remove('hidden');
-                document.getElementById('knockout-tab').classList.add('hidden');
-            } else {
-                document.querySelectorAll('.tab')[1].classList.add('active');
-                document.getElementById('group-tab').classList.add('hidden');
-                document.getElementById('knockout-tab').classList.remove('hidden');
-            }
-            twemoji.parse(document.getElementById('dashboard-view'));
-        }
+  elBtnBack.addEventListener('click', showRegister);
 
-        function forceDemoWinner() {
-            currentUser = {
-                name: currentUser ? currentUser.name : "Alex Hunter",
-                team: "USA",
-                status: "Winner"
-            };
-            triggerWinnerScreen();
-        }
+  elBtnResultOk.addEventListener('click', showCompetitors);
 
-        function triggerWinnerScreen() {
-            document.getElementById('registration-view').classList.add('hidden');
-            document.getElementById('dashboard-view').classList.add('hidden');
-            document.getElementById('winner-screen').classList.remove('hidden');
-            document.getElementById('winnerNameDisplay').textContent = currentUser.name;
-            document.getElementById('winnerTeamDisplay').textContent = `${countryFlags[currentUser.team] || "🏳️"} Team: ${currentUser.team}`;
-            twemoji.parse(document.getElementById('winner-screen'));
-            var lifecycleTime = 6 * 1000;
-            var endPoint = Date.now() + lifecycleTime;
-            (function animationLoopFrame() {
-                confetti({ particleCount: 4, angle: 60, spread: 60, origin: { x: 0 }, colors: ['#441f54', '#f7c631', '#e34f6d'] });
-                confetti({ particleCount: 4, angle: 120, spread: 60, origin: { x: 1 }, colors: ['#441f54', '#f7c631', '#e34f6d'] });
-                if (Date.now() < endPoint) { requestAnimationFrame(animationLoopFrame); }
-            }());
-        }
+  elTabAll.addEventListener('click', function () {
+    elViewAll.style.display = 'block';
+    elViewGroups.style.display = 'none';
+    elTabAll.classList.add('active');
+    elTabGroups.classList.remove('active');
+  });
 
-        function resetToDashboard() {
-            document.getElementById('winner-screen').classList.add('hidden');
-            document.getElementById('dashboard-view').classList.remove('hidden');
-            renderEntrantsSidePanel();
-            renderGroupStageTablesLayout();
-            twemoji.parse(document.body);
-        }
+  elTabGroups.addEventListener('click', function () {
+    elViewAll.style.display = 'none';
+    elViewGroups.style.display = 'block';
+    elTabGroups.classList.add('active');
+    elTabAll.classList.remove('active');
+  });
 
-        window.onload = function() {
-            const cached = localStorage.getItem('imi_sweepstake_user');
-            if (cached) { 
-                currentUser = JSON.parse(cached); 
-                loadDashboard();
-            } else {
-                twemoji.parse(document.body);
-            }
-        }
-    </script>
+  // ─────────────────────────────────────────────
+  // INIT — UI shows immediately, Firebase loads async
+  // ─────────────────────────────────────────────
+  function init() {
+    // 1. Restore returning user from localStorage
+    try {
+      var stored = JSON.parse(localStorage.getItem(USER_KEY));
+      if (stored && stored.name && stored.assignment) {
+        currentUser = stored;
+      }
+    } catch (e) {}
+
+    // 2. Show the correct screen immediately — no waiting for Firebase
+    if (currentUser) {
+      // Returning user: go straight to competitors
+      // Render with empty assignments first; Firebase will fill in
+      renderTeamsGrid();
+      renderGroupsGrid();
+      elRegister.style.display = 'none';
+      elCompetitors.style.display = 'flex';
+    } else {
+      // New user: show register form
+      elRegister.style.display = 'flex';
+      elCompetitors.style.display = 'none';
+    }
+
+    // 3. Connect to Firebase in background
+    setFBStatus('Connecting to live data…');
+
+    // Guard: if Firebase SDK didn't load (e.g. ad-blocker / offline)
+    if (typeof firebase === 'undefined' || !firebase.firestore) {
+      setFBStatus('⚠ Live sync unavailable — draw disabled', 'error');
+      elBtnDraw.disabled = true;
+      return;
+    }
+
+    try {
+      firebase.initializeApp({
+        apiKey: 'AIzaSyD-Wfl9g1msgO--1r43CbbXGL7qvV8AQcg',
+        authDomain: 'imi-ia-wc26-sweepstakes.firebaseapp.com',
+        projectId: 'imi-ia-wc26-sweepstakes',
+        storageBucket: 'imi-ia-wc26-sweepstakes.firebasestorage.app',
+        messagingSenderId: '440912146658',
+        appId: '1:440912146658:web:2a8efa8edb0a68b79daebb',
+        measurementId: 'G-YDWFK9LFBF'
+      });
+    } catch (e) {
+      // App may already be initialized on hot reload — that's fine
+      if (e.code !== 'app/duplicate-app') {
+        setFBStatus('Firebase init failed: ' + e.message, 'error');
+        return;
+      }
+    }
+
+    db = firebase.firestore();
+
+    // Set a 10-second timeout so the UI never hangs
+    var connected = false;
+    var timeout = setTimeout(function () {
+      if (!connected) {
+        setFBStatus('⚠ Could not reach Firebase — check your connection', 'error');
+        elBtnDraw.disabled = false; // let them try anyway
+        elBtnDraw.innerHTML = 'SHOW ME MY TEAM';
+      }
+    }, 10000);
+
+    fetchAssignments().then(function () {
+      connected = true;
+      clearTimeout(timeout);
+      firebaseReady = true;
+      setFBStatus('● Live', 'ok');
+      setBtnDrawState(false);
+
+      // Re-render now that we have real data
+      if (elCompetitors.style.display !== 'none') {
+        renderTeamsGrid();
+        renderGroupsGrid();
+      }
+
+      // Start real-time listener
+      listenForChanges();
+
+    }).catch(function (err) {
+      connected = true;
+      clearTimeout(timeout);
+      console.error('Firestore fetch error:', err);
+      setFBStatus('⚠ Firebase error: ' + (err.code || err.message), 'error');
+      // Still allow UI to work — just no live data
+      firebaseReady = true;
+      elBtnDraw.disabled = false;
+      elBtnDraw.innerHTML = 'SHOW ME MY TEAM';
+    });
+  }
+
+  // Run immediately
+  init();
+
+})();
+</script>
 </body>
 </html>
